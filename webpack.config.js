@@ -7,7 +7,7 @@ module.exports=(env)=>{
 	return {
 		entry: './src/app.js',
 		output: {
-			path: path.join(__dirname, 'public'), //needs to be absolute path 
+			path: path.join(__dirname, 'public','dist'), //needs to be absolute path 
 			filename: 'bundle.js'
 		},
 		module: {
@@ -41,7 +41,8 @@ module.exports=(env)=>{
 		devtool:isProduction?'source-map':'inline-source-map', //from webpack doucmentation
 		devServer: {
 			contentBase: path.join(__dirname, 'public'),
-			historyApiFallback: true   //client side routing
+			historyApiFallback: true,  //client side routing
+			publicPath:'/dist/'
 		}
 	}
 
