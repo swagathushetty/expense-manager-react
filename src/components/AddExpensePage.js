@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import ExpenseForm from './ExpenseForm'
-import { addExpense} from '../actions/expenses'
+import { startAddExpense} from '../actions/expenses'
 
 
 export class AddExpensePage extends React.Component {
@@ -9,7 +9,7 @@ export class AddExpensePage extends React.Component {
         //this is cannot be tested as addExpense is imported
         //we will abstract it
         // props.dispatch(addExpense(expense))
-        this.props.addExpense(expense)
+        this.props.startAddExpense(expense)
 
         //redirect to page without refrshing
         this.props.history.push('/')
@@ -32,7 +32,7 @@ export class AddExpensePage extends React.Component {
 //below works with dispatch
 const mapDispatchToProps=(dispatch)=>{
     return{
-        addExpense:(expense)=>dispatch(addExpense(expense))
+        startAddExpense:(expense)=>dispatch(startAddExpense(expense))
     }
 
 }
