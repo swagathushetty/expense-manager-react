@@ -11,6 +11,7 @@ const getVisibleExpense = (expenses, { text, sortBy, startDate, endDate }) => {
 
         // const endDateMatch = typeof endDate !== 'number' || expense.createdAt <= endDate
         const endDateMatch = endDate ? endDate.isSameOrAfter(createdAtMoment, 'day') : true;
+        
         const textMatch = expense.description.toLowerCase().includes(text.toLowerCase())
 
         //figure out if expenses.description as the text variable string inside of it
@@ -23,6 +24,7 @@ const getVisibleExpense = (expenses, { text, sortBy, startDate, endDate }) => {
             return a.amount < b.amount ? 1 : -1
         }
     })
-}
+} 
 
 export default getVisibleExpense
+
